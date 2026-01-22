@@ -71,19 +71,25 @@ int main() {
     Widget* wp = &w1;
 
     // Call print method on both original instance and pointer
+    cout << "Widget w1: " << endl;
     w1.print();
+    cout << "\nWidget wp (pointer to w1): " << endl;
     wp->print();
 
     Widget w2 = w1; // Shallow copy
 
     // Demonstrate that both instances share the same _data pointer address
+    cout << "\nWidget w1" << endl;
     w1.print();
+    cout << "\nWidget w2 (shallow copy of w1)" << endl;
     w2.print();
 
     w1.setData(0, 100); // Modify w1's data
 
     // Print both instances to show that w2's data is also affected
+    cout << "\nAfter modifying w1's data:" << endl;
     w1.print();
+    cout << "\nWidget w2 (after w1 modification):" << endl;
     w2.print();
 
     return 0;
