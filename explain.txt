@@ -1,0 +1,15 @@
+Shallow copying an instance of a class is dangerous when the class owns dynamic memory 
+because the memory addresses will be the same on both the original instance and the new 
+instance for that data member that has dynamic memory. 
+This can cause issues like use-after-free, where destructing one class instance, 
+and freeing up its dynamic memory data causes the other instance’s data that uses 
+dynamic memory to be deleted as well, meaning that if the program tries to access the 
+dynamic memory data member of the class instance that hasn’t yet been deleted, the 
+program would error out. Another possible issue is double, which is essentially when 
+the program tries to free memory that has already been freed. If, for example, 
+the original instance’s dynamic memory data members are freed, freeing the dynamic 
+memory data members of the new copy instance could result in logic and/or runtime errors.
+
+After receiving a double free error following the shallow copy demonstration, I tried 
+removing the deconstructor. This resulted in the programming running without any errors, 
+but the memory was not freed, so it is now lost.
