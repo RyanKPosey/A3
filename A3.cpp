@@ -63,3 +63,27 @@ int Widget::getData(int index) {
     }
     return -1; // Return an invalid value if index is out of bounds
 }
+
+int main() {
+    // Create Widget instance
+    Widget w1("alpha", 10);
+    Widget* wp = &w1;
+
+    // Call print method on both original instance and pointer
+    w1.print();
+    wp->print();
+
+    Widget w2 = w1; // Shallow copy
+
+    // Demonstrate that both instances share the same _data pointer address
+    w1.print();
+    w2.print();
+
+    w1.setData(0, 100); // Modify w1's data
+
+    // Print both instances to show that w2's data is also affected
+    w1.print();
+    w2.print();
+
+    return 0;
+}
