@@ -17,10 +17,10 @@ class Widget {
     
     public:
     // Constructor
-        Widget::Widget(std::string name, int value) : _name(name), _value(value), _data(new int[3]);
+        Widget(std::string name, int value);
 
     // Destructor
-        Widget::~Widget();
+        ~Widget();
     
     // Print
         void print();
