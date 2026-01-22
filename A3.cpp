@@ -41,6 +41,7 @@ Widget::Widget(std::string name, int value) : _name(name), _value(value), _data(
 
 Widget::~Widget() {
     delete[] _data;
+    _data = nullptr;
 }
 
 void Widget::print() {
